@@ -17,8 +17,8 @@ public class QueMePongoTests {
     }
 
     //como hago el test?
-    @Test
+    /*@Test
     public void colorNoPuedeSerNull() {
         new Assert.;
-    }
+    }*/
 }
