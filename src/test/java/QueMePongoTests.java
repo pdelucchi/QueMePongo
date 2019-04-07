@@ -13,7 +13,7 @@ public class QueMePongoTests {
     @Before
     public void initialize(){
 
-        prenda1 = new Prenda(TipoDePrenda.REMERA, Material.CUERO, null);
+        prenda1 = new Prenda(TipoDePrenda.REMERA, Material.CUERO, null, Trama.LISA);
     }
 
     //como hago el test?

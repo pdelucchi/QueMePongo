@@ -10,7 +10,7 @@ public class Prenda {
         this.tipoDePrenda = requireNonNull(_tipoDePrenda, "Tipo de prenda es obligatorio");
         this.material = requireNonNull(_material,"Material es obligatorio");
         this.color = requireNonNull(_color,"color es obligatorio");
-        this.trama = requireNonNull(_trama);
+        this.trama = _trama;
     }
 
     public Categoria categoria(){

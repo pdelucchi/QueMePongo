@@ -1,4 +1,5 @@
-package PACKAGE_NAME;
-
-public class MaterialInvalidoException {
+public class MaterialInvalidoException extends RuntimeException {
+    public MaterialInvalidoException(String msg){
+        super(msg);
+    }
 }

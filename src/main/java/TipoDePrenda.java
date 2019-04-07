@@ -19,20 +19,42 @@
 
 */
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public enum TipoDePrenda {
 
-    ZAPATO(Categoria.CALZADO),
-    REMERA(Categoria.PARTE_SUPERIOR),
-    PANTALON(Categoria.PARTE_INFERIOR),
-    COLLAR(Categoria.ACCESORIOS);
-    private Categoria categoria;
+    ZAPATO(Categoria.CALZADO, Arrays.asList(Material.CUERO,Material.SINTETICO)),
+    REMERA(Categoria.PARTE_SUPERIOR,Arrays.asList(Material.ALGODON,Material.SEDA)),
+    PANTALON(Categoria.PARTE_INFERIOR,Arrays.asList(Material.JEAN,Material.CORDEROY,Material.GABARDINA)),
+    COLLAR(Categoria.ACCESORIOS,Arrays.asList(Material.ORO,Material.PLATA,Material.PLASTICO));
 
-    TipoDePrenda(Categoria _categoria){
+    private Categoria categoria;
+    private List<Material> materialValido;
+
+    TipoDePrenda(Categoria _categoria, List<Material> _materialValido){
         this.categoria = _categoria;
+        this.materialValido = _materialValido;
     }
 
-       public Categoria categoria(){
+    public Categoria categoria(){
         return this.categoria;
+    }
+
+    public Boolean validarMaterial(Material material){
+        if(this.materialValido.contains(material)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public List<Material> RetornarMaterialesValidosTipoDePrenda(){
+        return materialValido;
     }
 
     //COMO HAGO EL ENUM DE LA ROPA SI YA TENGO UNA CLASE QUE SE LLAMA SIMILAR? osea, a que matchea zaparo, remera, pantalon, etc.
