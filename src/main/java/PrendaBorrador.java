@@ -40,13 +40,10 @@ public class PrendaBorrador {
 
     public void validacionMaterial(){
         requireNonNull(material,"Material es obligatorio");
-        if(tipoDePrenda.validarMaterial(material)){
-
+        if (tipoDePrenda.validarMaterial(material)) {
+            return;
         }
-        else{
-            throw new MaterialInvalidoException("Material es invalido para ese tipo de prenda");
-            //return tipoDePrenda.RetornarMaterialesValidosTipoDePrenda();  VER COMO DEVOLVER LA LISTA PARA QUE EL USUARIO SELECCIONE
-        }
+        throw new MaterialInvalidoException("Material es invalido para ese tipo de prenda");
     }
 
     public Prenda crear(){
