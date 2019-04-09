@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static junit.framework.TestCase.fail;
+
 public class QueMePongoTests {
     private Prenda prenda1;
     private PrendaBorrador prendaBorrador;
@@ -36,24 +38,79 @@ public class QueMePongoTests {
         prendaBorrador.crear();
     }
 
-    @Test(expected = NullPointerException.class)
-    public void creoPrendaSintipo(){
-        prendaBorrador.crear();
+    @Test (expected = RuntimeException.class)
+    public void creoPrendaSinMaterial()
+    {
+        try
+        {
+            prendaBorrador.setTipoDePrenda(TipoDePrenda.ZAPATO);
+            prendaBorrador.crear();
+            //Run exception throwing operation here
+        }
+        catch(RuntimeException re)
+        {
+            String message = "Material es obligatorio";
+            Assert.assertEquals(message, re.getMessage());
+            throw re;
+        }
+    }
+
+    @Test (expected = RuntimeException.class)
+    public void creoPrendaSinColor()
+    {
+        try
+        {
+            prendaBorrador.setTipoDePrenda(TipoDePrenda.ZAPATO);
+            prendaBorrador.setMaterial(Material.CUERO);
+            prendaBorrador.crear();
+        }
+        catch(RuntimeException re)
+        {
+            String message = "color es obligatorio";
+            Assert.assertEquals(message, re.getMessage());
+            throw re;
+        }
     }
 
 
-    @Test(expected = NullPointerException.class)
-    public void creoPrendaSinColor(){
-        prendaBorrador.setTipoDePrenda(TipoDePrenda.ZAPATO);
-        prendaBorrador.setMaterial(Material.CUERO);
-        prendaBorrador.crear();
+
+    @Test (expected = RuntimeException.class)
+    public void creoPrendaSinTipoDePrenda()
+    {
+        try
+        {
+            prendaBorrador.crear();
+            //Run exception throwing operation here
+        }
+        catch(RuntimeException re)
+        {
+            String message = "Tipo de prenda es obligatorio";
+            Assert.assertEquals(message, re.getMessage());
+            throw re;
+        }
     }
 
-    @Test(expected = NullPointerException.class)
-    public void creoPrendaSinMaterial(){
-        prendaBorrador.setTipoDePrenda(TipoDePrenda.ZAPATO);
-        prendaBorrador.crear();
-    }
+
+//    @Test(expected = NullPointerException.class)
+//    public void creoPrendaSintipo(){
+//        prendaBorrador.crear();
+//    }
+//
+//
+//    @Test(expected = NullPointerException.class)
+//    public void creoPrendaSinColor(){
+//        prendaBorrador.setTipoDePrenda(TipoDePrenda.ZAPATO);
+//        prendaBorrador.setMaterial(Material.CUERO);
+//        prendaBorrador.crear();
+//    }
+//
+//    @Test(expected = NullPointerException.class)
+//    public void creoPrendaSinMaterial(){
+//        prendaBorrador.setTipoDePrenda(TipoDePrenda.ZAPATO);
+//        prendaBorrador.crear();
+//
+//
+//    }
 
 
 
