@@ -1,15 +1,7 @@
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import static junit.framework.TestCase.fail;
 
 public class QueMePongoTests {
     private Prenda prenda1;
@@ -45,7 +37,6 @@ public class QueMePongoTests {
         {
             prendaBorrador.setTipoDePrenda(TipoDePrenda.ZAPATO);
             prendaBorrador.crear();
-            //Run exception throwing operation here
         }
         catch(RuntimeException re)
         {
@@ -91,28 +82,28 @@ public class QueMePongoTests {
     }
 
 
-//    @Test(expected = NullPointerException.class)
-//    public void creoPrendaSintipo(){
-//        prendaBorrador.crear();
-//    }
-//
-//
-//    @Test(expected = NullPointerException.class)
-//    public void creoPrendaSinColor(){
-//        prendaBorrador.setTipoDePrenda(TipoDePrenda.ZAPATO);
-//        prendaBorrador.setMaterial(Material.CUERO);
-//        prendaBorrador.crear();
-//    }
-//
-//    @Test(expected = NullPointerException.class)
-//    public void creoPrendaSinMaterial(){
-//        prendaBorrador.setTipoDePrenda(TipoDePrenda.ZAPATO);
-//        prendaBorrador.crear();
-//
-//
-//    }
+/*
+    @Test(expected = NullPointerException.class)
+    public void creoPrendaSintipo(){
+        prendaBorrador.crear();
+    }
 
 
+    @Test(expected = NullPointerException.class)
+    public void creoPrendaSinColor(){
+        prendaBorrador.setTipoDePrenda(TipoDePrenda.ZAPATO);
+        prendaBorrador.setMaterial(Material.CUERO);
+        prendaBorrador.crear();
+    }
 
+    @Test(expected = NullPointerException.class)
+    public void creoPrendaSinMaterial(){
+        prendaBorrador.setTipoDePrenda(TipoDePrenda.ZAPATO);
+        prendaBorrador.crear();
+
+
+    }
+
+*/
 
 }
