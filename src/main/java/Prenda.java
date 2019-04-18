@@ -5,16 +5,22 @@ public class Prenda {
     private Material material;
     private Color color;
     private Trama trama;
+    private Color colorSecundario;
 
     Prenda(TipoDePrenda _tipoDePrenda, Material _material, Color _color, Trama _trama){
-        this.tipoDePrenda = requireNonNull(_tipoDePrenda, "Tipo de prenda es obligatorio");
-        this.material = requireNonNull(_material,"Material es obligatorio");
-        this.color = requireNonNull(_color,"color es obligatorio");
+        this.tipoDePrenda = _tipoDePrenda;
+        this.material = material;
+        this.color = _color;
         this.trama = _trama;
     }
 
     public Categoria categoria(){
         return tipoDePrenda.categoria();
+    }
+
+    public Prenda setColorSecundario(Color _colorSecundario){
+        this.colorSecundario = _colorSecundario;
+        return this;
     }
 
 }
