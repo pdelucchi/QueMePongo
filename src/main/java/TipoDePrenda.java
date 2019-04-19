@@ -29,8 +29,8 @@ public enum TipoDePrenda {
 
     ZAPATO(Categoria.CALZADO, Arrays.asList(Material.CUERO,Material.SINTETICO)),
     REMERA(Categoria.PARTE_SUPERIOR,Arrays.asList(Material.ALGODON,Material.SEDA)),
-    PANTALON(Categoria.PARTE_INFERIOR,Arrays.asList(Material.JEAN,Material.CORDEROY,Material.GABARDINA)),
-    COLLAR(Categoria.ACCESORIOS,Arrays.asList(Material.ORO,Material.PLATA,Material.PLASTICO));
+    PANTALON(Categoria.PARTE_INFERIOR,Arrays.asList(Material.JEAN,Material.CORDEROY,Material.GABARDINA));
+    //COLLAR(Categoria.ACCESORIOS,Arrays.asList(Material.ORO,Material.PLATA,Material.PLASTICO));
 
     private Categoria categoria;
     private List<Material> materialValido;
@@ -53,8 +53,8 @@ public enum TipoDePrenda {
         }
     }
 
-    public List<Material> RetornarMaterialesValidosTipoDePrenda(){
-        return materialValido;
+    public List<Material> retornarMaterialesValidosTipoDePrenda(){
+        return this.materialValido;
     }
 
     //COMO HAGO EL ENUM DE LA ROPA SI YA TENGO UNA CLASE QUE SE LLAMA SIMILAR? osea, a que matchea zaparo, remera, pantalon, etc.

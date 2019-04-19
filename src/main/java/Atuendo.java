@@ -8,4 +8,16 @@ public class Atuendo {
         this.parteInferior = _parteInferior;
         this.calzado = _calzado;
     }
+
+    public Prenda mostrarFalopaSuperior(){
+        return this.parteSuperior;
+    }
+    public Prenda mostrarFalopaInferior(){
+        return this.parteInferior;
+    }
+    public Prenda mostrarFalopaCalzado(){
+        return this.calzado;
+    }
+
+
 }

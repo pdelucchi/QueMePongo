@@ -12,7 +12,15 @@ public class Guardarropa {
     private List<Prenda> calzados;
     private List<List<Prenda>> listaDelistasDePrendas;
     private List<Atuendo> atuendos;
+    private Atuendo atuendo1;
 
+    public Guardarropa() {
+        this.prendasSuperiores = new ArrayList<Prenda>();
+        this.prendasInferiores = new ArrayList<Prenda>();
+        this.calzados = new ArrayList<Prenda>();
+        this.atuendos = new ArrayList<Atuendo>();
+        this.listaDelistasDePrendas = new ArrayList<List<Prenda>>();
+    }
 
     public void incluirEnGuardarropa(Prenda prenda) {
         switch (prenda.categoria()) {
@@ -30,20 +38,25 @@ public class Guardarropa {
         }
     }
 
-    public Guardarropa agregarPrendaSuperior(Prenda _prenda) {
-        this.prendasSuperiores.add(_prenda);
+
+    public Guardarropa agregarPrendaSuperior(Prenda prenda) {
+        this.prendasSuperiores.add(prenda);
         return this;
     }
 
 
     public Guardarropa agregarPrendaInferior(Prenda _prenda) {
-        this.prendasSuperiores.add(_prenda);
+        this.prendasInferiores.add(_prenda);
         return this;
     }
 
     public Guardarropa agregarCalzado(Prenda _prenda) {
-        this.prendasSuperiores.add(_prenda);
+        this.calzados.add(_prenda);
         return this;
+    }
+
+    public List<Prenda> getPrendasSuperiores(){
+        return this.prendasSuperiores;
     }
 
     ////TESTEAR//////////////////////////////////////////////////////////////////////////////
@@ -53,8 +66,20 @@ public class Guardarropa {
         for(int i=0; i < this.listaDelistasDePrendas.size(); i++){
             List<Prenda> unAtuendo = this.listaDelistasDePrendas.get(i); //agarra la lista dentro de la listaDeListas en el indice i
             this.atuendos.add(new Atuendo(unAtuendo.get(0),unAtuendo.get(1),unAtuendo.get(2))); //testear que guarda esta wea
+
         }
         return this;
+
+    }
+
+    public int getListadeListasDePrendas(){
+        return listaDelistasDePrendas.size();
+    }
+
+    public List<Atuendo> getAtuendos(){
+        //atuendo1 = this.atuendos.get(1);
+        //System.out.println(this.atuendos.get(1));
+        return this.atuendos;
 
     }
     //TESTEAR///////////////////////////////////////////////////////////////////////////////

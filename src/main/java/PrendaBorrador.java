@@ -45,14 +45,14 @@ public class PrendaBorrador {
         }
     }
 
-    public void validacionMaterial(){
-        requireNonNull(material,"Material es obligatorio");
-        if (tipoDePrenda.validarMaterial(material)) {
-            return;
-        }
-        throw new MaterialInvalidoException("Material es invalido para ese tipo de prenda");
-    }
+    public void validacionMaterial() {
+        requireNonNull(material, "Material es obligatorio");
+        if(tipoDePrenda.validarMaterial(material)) {
 
+        }
+        else throw new MaterialInvalidoException("Material es invalido para ese tipo de prenda");
+    }
+/*
     public void validacionColorSecundario(){
         if(this.colorSecundario !=null){
             if(this.colorSecundario != this.color){
@@ -66,27 +66,13 @@ public class PrendaBorrador {
             //nada
         }
     }
-/* esto va en el guardarropa
-    public void incluirEnGuardarropa(Guardarropa guardarropa){
-        switch (this.tipoDePrenda.categoria()){
-            case PARTE_SUPERIOR: guardarropa.agregarPrendaSuperior(this.nuevaPrenda);
-            break;
-            case PARTE_INFERIOR: guardarropa.agregarPrendaInferior(this.nuevaPrenda);
-            break;
-            case CALZADO: guardarropa.agregarCalzado(this.nuevaPrenda);
-            break;
-            default: throw new CategoriaInvalidaException("Categoria Invalida!");
-        }
-    }
 */
-
-
     public Prenda crear(){
         requireNonNull(tipoDePrenda, "Tipo de prenda es obligatorio");
         this.validacionMaterial(); //Valido si hay input y si ademas el material es valido para la prenda
         requireNonNull(color,"color es obligatorio");
         this.validacionTrama(); //valido si hay input, sino la trama sera lisa por defecto
-        this.validacionColorSecundario();
+        //this.validacionColorSecundario();
 
         nuevaPrenda = new Prenda(this.tipoDePrenda, this.material, this.color, this.trama);
 

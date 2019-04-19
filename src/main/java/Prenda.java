@@ -9,7 +9,7 @@ public class Prenda {
 
     Prenda(TipoDePrenda _tipoDePrenda, Material _material, Color _color, Trama _trama){
         this.tipoDePrenda = _tipoDePrenda;
-        this.material = material;
+        this.material = _material;
         this.color = _color;
         this.trama = _trama;
     }
@@ -18,9 +18,17 @@ public class Prenda {
         return tipoDePrenda.categoria();
     }
 
+    public TipoDePrenda tipoDePrenda(){
+        return this.tipoDePrenda;
+    }
+
     public Prenda setColorSecundario(Color _colorSecundario){
         this.colorSecundario = _colorSecundario;
         return this;
     }
 
+    @Override
+    public String toString() {
+        return "Tipo";
+    }
 }
