@@ -47,34 +47,25 @@ public class PrendaBorrador {
 
     public void validacionMaterial() {
         requireNonNull(material, "Material es obligatorio");
-        if(tipoDePrenda.validarMaterial(material)) {
-
+        if(!tipoDePrenda.validarMaterial(material)) {
+            throw new MaterialInvalidoException("Material es invalido para ese tipo de prenda");
         }
-        else throw new MaterialInvalidoException("Material es invalido para ese tipo de prenda");
     }
-/*
+
     public void validacionColorSecundario(){
-        if(this.colorSecundario !=null){
-            if(this.colorSecundario != this.color){
-                nuevaPrenda.setColorSecundario(this.colorSecundario);
-            }
-            else{
+            if(this.colorSecundario == this.color){
                 throw new ColorIgualException("El color secundario no puede ser igual al primario");
             }
         }
-        else{
-            //nada
-        }
-    }
-*/
+
     public Prenda crear(){
         requireNonNull(tipoDePrenda, "Tipo de prenda es obligatorio");
         this.validacionMaterial(); //Valido si hay input y si ademas el material es valido para la prenda
         requireNonNull(color,"color es obligatorio");
         this.validacionTrama(); //valido si hay input, sino la trama sera lisa por defecto
-        //this.validacionColorSecundario();
+        this.validacionColorSecundario();
 
-        nuevaPrenda = new Prenda(this.tipoDePrenda, this.material, this.color, this.trama);
+        nuevaPrenda = new Prenda(this.tipoDePrenda, this.material, this.color, this.trama, this.colorSecundario);
 
         //aca no va  VA EN EL TEST this.incluirEnGuardarropa(guardarropa); ///ESTO SE HACE EN EL TEST
         /*

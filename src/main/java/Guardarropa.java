@@ -60,16 +60,14 @@ public class Guardarropa {
     }
 
     ////TESTEAR//////////////////////////////////////////////////////////////////////////////
-    public Guardarropa sugerir(){
+    public List<Atuendo> sugerir(){
         this.listaDelistasDePrendas = Lists.cartesianProduct(this.prendasSuperiores,this.prendasInferiores,this.calzados);
 
         for(int i=0; i < this.listaDelistasDePrendas.size(); i++){
             List<Prenda> unAtuendo = this.listaDelistasDePrendas.get(i); //agarra la lista dentro de la listaDeListas en el indice i
             this.atuendos.add(new Atuendo(unAtuendo.get(0),unAtuendo.get(1),unAtuendo.get(2))); //testear que guarda esta wea
-
         }
-        return this;
-
+        return atuendos;
     }
 
     public int getListadeListasDePrendas(){
@@ -81,6 +79,10 @@ public class Guardarropa {
         //System.out.println(this.atuendos.get(1));
         return this.atuendos;
 
+    }
+
+    public Guardarropa crear(){
+        return new Guardarropa();
     }
     //TESTEAR///////////////////////////////////////////////////////////////////////////////
 

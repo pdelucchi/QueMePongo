@@ -2,6 +2,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -23,6 +26,8 @@ public class QueMePongoTests {
     private Prenda prendaCalzado2;
     private Guardarropa guardarropa1;
     private Atuendo atuendo1,atuendo2,atuendo3,atuendo4,atuendo5,atuendo6,atuendo7,atuendo8;
+    private Color color1;
+    private Color colorSecundario1;
 
     @Before
     public void initialize(){
@@ -88,8 +93,8 @@ public class QueMePongoTests {
         atuendo7 = new Atuendo(prendaRemera2,prendaPantalon2,prendaCalzado1);
         atuendo8 = new Atuendo(prendaRemera2,prendaPantalon2,prendaCalzado2);
 
-
-
+        color1 = new Color(20,20,20);
+        //colorSecundario1 = new Color(20,20,20);
 
     }
 /*
@@ -103,6 +108,17 @@ public class QueMePongoTests {
     public void fallaPorMaterialInvalido(){
         prendaBorrador.setTipoDePrenda(TipoDePrenda.ZAPATO);
         prendaBorrador.setMaterial(Material.ORO);
+        prendaBorrador.setColor(new Color(12,34,51));
+        prendaBorrador.setColorSecundario(new Color(12,34,51));
+        prendaBorrador.crear();
+    }
+
+    @Test (expected = ColorIgualException.class)
+    public void fallaPorColorIgual(){
+        prendaBorrador.setTipoDePrenda(TipoDePrenda.ZAPATO);
+        prendaBorrador.setMaterial(Material.CUERO);
+        prendaBorrador.setColor(color1);
+        prendaBorrador.setColorSecundario(color1);
         prendaBorrador.crear();
     }
 
@@ -201,6 +217,15 @@ public class QueMePongoTests {
         Assert.assertEquals(listaDeAtuendos.get(0).mostrarFalopaSuperior(),guardarropa1.getAtuendos().get(0).mostrarFalopaSuperior());
         Assert.assertEquals(listaDeAtuendos.get(0).mostrarFalopaInferior(),guardarropa1.getAtuendos().get(0).mostrarFalopaInferior());
         Assert.assertEquals(listaDeAtuendos.get(0).mostrarFalopaCalzado(),guardarropa1.getAtuendos().get(0).mostrarFalopaCalzado());
+    }
+
+    @Test
+    public void verificarLargoImagen() throws IOException {
+        BufferedImage imageTest;
+        String path = "c:/temp/Parrot.jpg";
+        imageTest = prendaRemera1.insertarImagenPrenda(path);
+
+       Assert.assertEquals(640, imageTest.getHeight());
     }
 
 
